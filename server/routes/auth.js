@@ -27,7 +27,7 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { name, email, password, role, businessName } = req.body;
+    const { name, email, password, role, businessName, phone } = req.body;
 
     try {
       const existing = await User.findOne({ email });
@@ -41,6 +41,7 @@ router.post(
         password,
         role,
         businessName: role === 'producer' ? businessName : undefined,
+        phone: role === 'producer' ? phone : undefined,
       });
 
       const token = signToken(user._id);
@@ -53,6 +54,7 @@ router.post(
           email: user.email,
           role: user.role,
           businessName: user.businessName,
+          phone: user.phone,
         },
       });
     } catch (err) {
@@ -92,6 +94,7 @@ router.post(
           email: user.email,
           role: user.role,
           businessName: user.businessName,
+          phone: user.phone,
         },
       });
     } catch (err) {
