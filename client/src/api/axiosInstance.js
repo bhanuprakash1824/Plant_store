@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'https://plant-store-b255.onrender.com',
+ baseURL: 'https://plant-store-backend-n5kw.onrender.com/api',
   headers: { 'Content-Type': 'application/json' },
 });
 
