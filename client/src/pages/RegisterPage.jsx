@@ -16,6 +16,7 @@ const RegisterPage = () => {
     confirmPassword: '',
     role: location.state?.role || 'consumer',
     businessName: '',
+    phone: '',
   });
   const [localError, setLocalError] = useState('');
 
@@ -101,15 +102,28 @@ const RegisterPage = () => {
           </div>
 
           {form.role === 'producer' && (
-            <div className="form-group">
-              <label>Business / Farm Name</label>
-              <input
-                name="businessName"
-                value={form.businessName}
-                onChange={handleChange}
-                placeholder="Green Thumb Farms"
-              />
-            </div>
+            <>
+              <div className="form-group">
+                <label>Business / Farm Name</label>
+                <input
+                  name="businessName"
+                  value={form.businessName}
+                  onChange={handleChange}
+                  placeholder="Green Thumb Farms"
+                />
+              </div>
+              <div className="form-group">
+                <label>Phone Number <span style={{color:'var(--primary)'}}>*</span></label>
+                <input
+                  name="phone"
+                  type="tel"
+                  value={form.phone}
+                  onChange={handleChange}
+                  placeholder="+91 98765 43210"
+                  required
+                />
+              </div>
+            </>
           )}
 
           <div className="form-group">

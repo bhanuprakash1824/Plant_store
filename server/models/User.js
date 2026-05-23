@@ -31,6 +31,11 @@ const UserSchema = new mongoose.Schema(
       type: String,
       trim: true,
     },
+    // Producer-specific: contact phone number
+    phone: {
+      type: String,
+      trim: true,
+    },
   },
   { timestamps: true }
 );

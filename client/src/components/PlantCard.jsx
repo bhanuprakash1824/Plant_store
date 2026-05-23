@@ -29,11 +29,22 @@ const PlantCard = ({ plant, mode = 'consumer', onEdit, onDelete }) => {
         <span className="plant-category-tag">{plant.category}</span>
         <p className="plant-description">{plant.description}</p>
 
-        {/* Producer info (optional, shown to consumers) */}
+        {/* Producer info (shown to consumers) */}
         {mode === 'consumer' && plant.producer && (
-          <p className="plant-producer">
-            🌾 {plant.producer.businessName || plant.producer.name}
-          </p>
+          <div className="plant-producer-info">
+            <p className="plant-producer">
+              🌾 {plant.producer.businessName || plant.producer.name}
+            </p>
+            {plant.producer.phone && (
+              <a
+                href={`tel:${plant.producer.phone}`}
+                className="plant-producer-phone"
+                onClick={(e) => e.stopPropagation()}
+              >
+                📞 {plant.producer.phone}
+              </a>
+            )}
+          </div>
         )}
 
         {/* Stock info for producers */}

@@ -9,7 +9,7 @@ const { verifyToken, requireRole } = require('../middleware/auth');
 router.get('/', verifyToken, async (req, res) => {
   try {
     const plants = await Plant.find({ isActive: true, stock: { $gt: 0 } })
-      .populate('producer', 'name businessName')
+      .populate('producer', 'name businessName phone')
       .sort({ createdAt: -1 });
     res.json(plants);
   } catch (err) {
