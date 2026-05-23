@@ -15,7 +15,7 @@ export const checkoutCart = createAsyncThunk(
     }));
 
     try {
-      const { data } = await axiosInstance.post('/api/orders/checkout', {
+      const { data } = await axiosInstance.post('/orders/checkout', {
         items: payload,
         shippingAddress: address,
       });

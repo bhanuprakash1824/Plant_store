@@ -8,7 +8,7 @@ export const fetchAllPlants = createAsyncThunk(
   'plants/fetchAll',
   async (_, { rejectWithValue }) => {
     try {
-      const { data } = await axiosInstance.get('/api/plants');
+      const { data } = await axiosInstance.get('/plants');
       return data;
     } catch (err) {
       return rejectWithValue(err.response?.data?.message || 'Failed to load plants');
@@ -21,7 +21,7 @@ export const fetchMyPlants = createAsyncThunk(
   'plants/fetchMine',
   async (_, { rejectWithValue }) => {
     try {
-      const { data } = await axiosInstance.get('/api/plants/mine');
+      const { data } = await axiosInstance.get('/plants/mine');
       return data;
     } catch (err) {
       return rejectWithValue(err.response?.data?.message || 'Failed to load plants');
@@ -34,7 +34,7 @@ export const addPlant = createAsyncThunk(
   'plants/add',
   async (plantData, { rejectWithValue }) => {
     try {
-      const { data } = await axiosInstance.post('/api/plants', plantData);
+      const { data } = await axiosInstance.post('/plants', plantData);
       return data;
     } catch (err) {
       return rejectWithValue(err.response?.data?.message || 'Failed to add plant');
@@ -47,7 +47,7 @@ export const editPlant = createAsyncThunk(
   'plants/edit',
   async ({ id, updates }, { rejectWithValue }) => {
     try {
-      const { data } = await axiosInstance.put(`/api/plants/${id}`, updates);
+      const { data } = await axiosInstance.put(`/plants/${id}`, updates);
       return data;
     } catch (err) {
       return rejectWithValue(err.response?.data?.message || 'Failed to update plant');
@@ -60,7 +60,7 @@ export const deletePlant = createAsyncThunk(
   'plants/delete',
   async (id, { rejectWithValue }) => {
     try {
-      await axiosInstance.delete(`/api/plants/${id}`);
+      await axiosInstance.delete(`/plants/${id}`);
       return id;
     } catch (err) {
       return rejectWithValue(err.response?.data?.message || 'Failed to delete plant');
