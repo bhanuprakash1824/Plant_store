@@ -6,7 +6,7 @@ import axiosInstance from '../api/axiosInstance';
 const StatsPage = () => {
   const [stats, setStats] = useState(null);
   useEffect(() => {
-    axiosInstance.get('/admin/stats').then(({ data }) => setStats(data));
+    axiosInstance.get('/api/admin/stats').then(({ data }) => setStats(data));
   }, []);
 
   if (!stats) return <div className="page-loading">Loading stats...</div>;
@@ -40,7 +40,7 @@ const StatsPage = () => {
 const UsersPage = () => {
   const [users, setUsers] = useState([]);
   useEffect(() => {
-    axiosInstance.get('/admin/users').then(({ data }) => setUsers(data));
+    axiosInstance.get('/api/admin/users').then(({ data }) => setUsers(data));
   }, []);
 
   return (
@@ -72,7 +72,7 @@ const UsersPage = () => {
 const AllPlantsPage = () => {
   const [plants, setPlants] = useState([]);
   useEffect(() => {
-    axiosInstance.get('/admin/plants').then(({ data }) => setPlants(data));
+    axiosInstance.get('/api/admin/plants').then(({ data }) => setPlants(data));
   }, []);
 
   return (
@@ -105,7 +105,7 @@ const AllPlantsPage = () => {
 const AllOrdersPage = () => {
   const [orders, setOrders] = useState([]);
   useEffect(() => {
-    axiosInstance.get('/admin/orders').then(({ data }) => setOrders(data));
+    axiosInstance.get('/api/admin/orders').then(({ data }) => setOrders(data));
   }, []);
 
   return (
@@ -137,7 +137,7 @@ const AllOrdersPage = () => {
 const AuditLogPage = () => {
   const [logs, setLogs] = useState([]);
   useEffect(() => {
-    axiosInstance.get('/admin/transactions').then(({ data }) => setLogs(data));
+    axiosInstance.get('/api/admin/transactions').then(({ data }) => setLogs(data));
   }, []);
 
   const typeColors = {
