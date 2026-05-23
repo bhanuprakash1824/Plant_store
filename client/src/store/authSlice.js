@@ -11,7 +11,7 @@ export const loginUser = createAsyncThunk(
   'auth/login',
   async (credentials, { rejectWithValue }) => {
     try {
-      const { data } = await axiosInstance.post('/auth/login', credentials);
+      const { data } = await axiosInstance.post('/api/auth/login', credentials);
       localStorage.setItem('eplant_token', data.token);
       localStorage.setItem('eplant_user', JSON.stringify(data.user));
       return data;
@@ -27,7 +27,7 @@ export const registerUser = createAsyncThunk(
   'auth/register',
   async (userData, { rejectWithValue }) => {
     try {
-      const { data } = await axiosInstance.post('/auth/register', userData);
+      const { data } = await axiosInstance.post('/api/auth/register', userData);
       localStorage.setItem('eplant_token', data.token);
       localStorage.setItem('eplant_user', JSON.stringify(data.user));
       return data;
