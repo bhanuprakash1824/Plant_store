@@ -18,6 +18,7 @@ const defaultForm = {
   image: '',
   price: '',
   stock: '',
+  contactNumber: '',
 };
 
 const AddPlantModal = ({ isOpen, onClose, editingPlant }) => {
@@ -35,6 +36,7 @@ const AddPlantModal = ({ isOpen, onClose, editingPlant }) => {
         image: editingPlant.image,
         price: editingPlant.price,
         stock: editingPlant.stock,
+        contactNumber: editingPlant.contactNumber || '',
       });
     } else {
       setForm(defaultForm);
@@ -120,6 +122,11 @@ const AddPlantModal = ({ isOpen, onClose, editingPlant }) => {
               <label>Stock (units)</label>
               <input name="stock" type="number" min="0" value={form.stock} onChange={handleChange} placeholder="10" />
             </div>
+          </div>
+
+          <div className="form-group">
+            <label>Contact Number (Optional)</label>
+            <input name="contactNumber" type="tel" value={form.contactNumber} onChange={handleChange} placeholder="+1 234 567 8900" />
           </div>
 
           <div className="modal-actions">

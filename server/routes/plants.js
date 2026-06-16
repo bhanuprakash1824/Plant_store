@@ -96,7 +96,7 @@ router.put(
           .json({ message: 'Plant not found or not yours' });
       }
 
-      const allowed = ['name', 'category', 'description', 'image', 'price', 'stock', 'isActive'];
+      const allowed = ['name', 'category', 'description', 'image', 'price', 'stock', 'isActive', 'contactNumber'];
       allowed.forEach((field) => {
         if (req.body[field] !== undefined) plant[field] = req.body[field];
       });

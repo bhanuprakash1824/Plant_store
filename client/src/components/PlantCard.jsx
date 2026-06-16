@@ -35,13 +35,13 @@ const PlantCard = ({ plant, mode = 'consumer', onEdit, onDelete }) => {
             <p className="plant-producer">
               🌾 {plant.producer.businessName || plant.producer.name}
             </p>
-            {plant.producer.phone && (
+            {(plant.contactNumber || plant.producer.phone) && (
               <a
-                href={`tel:${plant.producer.phone}`}
+                href={`tel:${plant.contactNumber || plant.producer.phone}`}
                 className="plant-producer-phone"
                 onClick={(e) => e.stopPropagation()}
               >
-                📞 {plant.producer.phone}
+                📞 {plant.contactNumber || plant.producer.phone}
               </a>
             )}
           </div>

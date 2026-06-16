@@ -38,6 +38,10 @@ const PlantSchema = new mongoose.Schema(
       min: [0, 'Stock cannot be negative'],
       default: 10,
     },
+    contactNumber: {
+      type: String,
+      trim: true,
+    },
     // ── Optimistic Concurrency Control ──────────────────────────────
     // Every successful purchase increments this. The client sends the
     // version it last saw; if it doesn't match, the purchase is rejected.
